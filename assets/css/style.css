@@ -682,15 +682,15 @@ p:last-child { margin-bottom: 0; }
         position: fixed !important;
         inset: 0 !important;
         background: var(--c-soft);
-        transform: translateY(-100%);
-        transition: transform .5s var(--ease);
-        display: flex;
+        display: none !important;
         align-items: center;
         justify-content: center;
         padding: 6rem 2rem 2rem;
         z-index: 30;
     }
-    .nav.is-open { transform: translateY(0); }
+    .nav.is-open {
+        display: flex !important;
+    }
     .nav ul {
         flex-direction: column;
         text-align: center;
