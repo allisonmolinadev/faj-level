@@ -80,8 +80,9 @@ body {
     overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; border: 0; background: none; color: inherit; cursor: pointer; }
+a { color: inherit; text-decoration: none; cursor: default; }
+button { font: inherit; border: 0; background: none; color: inherit; cursor: default; }
+label, summary, [role="button"] { cursor: default; }
 ul { list-style: none; padding: 0; margin: 0; }
 h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -0.01em; }
 p { margin: 0 0 1rem; }
@@ -144,17 +145,6 @@ p:last-child { margin-bottom: 0; }
     padding: 0.4rem 0;
     transition: color .25s var(--ease);
 }
-.nav a::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: 1px;
-    background: currentColor;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform .35s var(--ease);
-}
-.nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 
 /* CTA no header */
 .header-inner > .cta--sm { justify-self: end; }
@@ -383,12 +373,17 @@ p:last-child { margin-bottom: 0; }
     background: var(--c-off);
     color: var(--c-text);
     border-top: 1px solid var(--c-line);
+    overflow: hidden;
+    padding: clamp(3rem, 6vw, 5.5rem) 0;
 }
 .marca-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(2.5rem, 6vw, 6rem);
-    align-items: start;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2.5rem, 6vw, 5.5rem);
+    align-items: center;
+}
+.marca-title {
+    margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 .marca-copy .lead {
     font-size: clamp(1.15rem, 1.6vw, 1.35rem);
@@ -396,31 +391,65 @@ p:last-child { margin-bottom: 0; }
     color: var(--c-soft);
     margin-bottom: 1.5rem;
     line-height: 1.5;
+    max-width: 46ch;
 }
 .marca-copy p {
-    max-width: 58ch;
+    max-width: 52ch;
     color: var(--c-text-muted);
     font-size: 1.02rem;
 }
-.marca-list {
-    border-top: 1px solid var(--c-line);
+
+/* -- Moodboard editorial -- */
+.marca-moodboard {
+    position: relative;
+    isolation: isolate;
+    padding: clamp(1rem, 2vw, 1.75rem) 0;
 }
-.marca-list ul li {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid var(--c-line);
-    font-size: 1.05rem;
+.marca-moodboard-frame {
+    margin: 0;
+    position: relative;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 460px;
+    margin-inline: auto;
+}
+.marca-moodboard-img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    z-index: 1;
+}
+
+/* -- Labels flutuantes dos pilares (posições assimétricas) -- */
+.marca-pillars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+.marca-pillar {
+    position: absolute;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--c-soft);
-    letter-spacing: -0.005em;
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: auto;
+    text-shadow: 0 1px 8px rgba(255, 254, 245, 0.65);
+    transition: transform .4s var(--ease), color .3s var(--ease);
 }
-.marca-list ul li span {
-    font-size: 11px;
-    letter-spacing: 0.25em;
+.marca-pillar:hover {
+    transform: translateY(-2px);
     color: var(--c-xanadu);
-    min-width: 2rem;
 }
+.marca-pillar--01 { top: 8%;   left: -1.5rem; }
+.marca-pillar--02 { top: 18%;  right: 1rem; }
+.marca-pillar--03 { top: 56%;  left: -1.5rem; }
+.marca-pillar--04 { bottom: 12%; right: 0; }
 
 /* ------- SEÇÃO 02 — EXPERIÊNCIA ------- */
 .section--experiencia {
@@ -452,8 +481,6 @@ p:last-child { margin-bottom: 0; }
 .exp-copy strong {
     font-weight: 400;
     color: var(--c-off);
-    border-bottom: 1px solid rgba(228, 227, 217, 0.4);
-    padding-bottom: 1px;
 }
 
 /* ------- SEÇÃO 03 — CADASTRO ------- */
@@ -701,6 +728,44 @@ p:last-child { margin-bottom: 0; }
     .cadastro-action { justify-self: stretch; }
     .cadastro-action .cta { width: 100%; }
     .exp-grid { align-items: start; }
+
+    /* Moodboard mobile: imagem em cima, pilares em lista */
+    .marca-moodboard {
+        padding: 0;
+    }
+    .marca-moodboard-frame {
+        max-width: 100%;
+        aspect-ratio: auto;
+        height: auto;
+    }
+    .marca-moodboard-img {
+        height: auto;
+        max-height: 70vh;
+    }
+    .marca-pillars {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 1.75rem;
+        border-top: 1px solid var(--c-line);
+    }
+    .marca-pillar,
+    .marca-pillar--01,
+    .marca-pillar--02,
+    .marca-pillar--03,
+    .marca-pillar--04 {
+        position: static;
+        top: auto; right: auto; bottom: auto; left: auto;
+        padding: 1.1rem 0.25rem;
+        border-bottom: 1px solid var(--c-line);
+        white-space: normal;
+        text-shadow: none;
+    }
+    .marca-pillar:hover {
+        transform: none;
+        color: var(--c-soft);
+    }
 
     .hero { min-height: 90vh; min-height: 90svh; }
     .hero-frame {
