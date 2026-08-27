@@ -550,29 +550,27 @@ p:last-child { margin-bottom: 0; }
     padding: clamp(3.5rem, 7vw, 6rem) 0;
     border-top: 1px solid rgba(23, 30, 25, 0.08);
 }
-.fecho-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: clamp(2.5rem, 5vw, 5rem);
+.fecho-stack {
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.fecho-logo {
-    height: 44px;
-    width: auto;
-    margin-bottom: 1.25rem;
+    text-align: center;
+    gap: clamp(1.75rem, 3vw, 2.5rem);
 }
 .fecho-text {
-    max-width: 42ch;
     font-size: 1.05rem;
     line-height: 1.55;
     color: var(--c-soft);
+    margin: 0;
+    white-space: nowrap;
 }
-.fecho-right {
+.fecho-parent {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.9rem;
-    text-align: right;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
 }
 .fecho-tag {
     font-size: 1.05rem;
@@ -697,18 +695,12 @@ p:last-child { margin-bottom: 0; }
 
     .marca-grid,
     .exp-grid,
-    .fecho-grid,
     .cadastro-box {
         grid-template-columns: 1fr;
     }
     .cadastro-action { justify-self: stretch; }
     .cadastro-action .cta { width: 100%; }
     .exp-grid { align-items: start; }
-
-    .fecho-right {
-        align-items: flex-start;
-        text-align: left;
-    }
 
     .hero { min-height: 90vh; min-height: 90svh; }
     .hero-frame {
@@ -735,7 +727,8 @@ p:last-child { margin-bottom: 0; }
     .hero-cta.cta { width: calc(100% - (var(--wrap-pad) * 2)); }
 
     .marca-list ul li { padding: 1.1rem 0; }
-    .fecho-parent-logo, .fecho-logo { height: 36px; }
+    .fecho-parent-logo { height: 36px; }
+    .fecho-text { white-space: normal; font-size: 1rem; }
 }
 
 /* Reduz motion */
