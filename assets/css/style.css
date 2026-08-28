@@ -1,38 +1,12 @@
 /* ============================================
    FAJ LEVEL — Site institucional
-   Identidade: JUSTSans + Amithen
+   Identidade: Neue Haas Grotesk + Amithen
    Paleta: Soft Black Green base
 ============================================ */
 
-/* -------- FONTES -------- */
-@font-face {
-    font-family: "JUSTSans";
-    src: url("../fonts/JUSTSans-Lt.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JUSTSans";
-    src: url("../fonts/JUSTSans-Rg.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JUSTSans";
-    src: url("../fonts/JUSTSans-Md.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "JUSTSans";
-    src: url("../fonts/JUSTSans-SmBd.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
+/* -------- FONTES --------
+   Neue Haas Grotesk Display: carregada via Adobe Fonts (Typekit)
+   no <head> do index.html. */
 @font-face {
     font-family: "Amithen";
     src: url("../fonts/amithen-webfont.woff2") format("woff2");
@@ -55,8 +29,8 @@
     --c-line: rgba(23, 30, 25, 0.12);
     --c-line-light: rgba(255, 254, 245, 0.14);
 
-    --ff-sans: "JUSTSans", "Helvetica Neue", Arial, sans-serif;
-    --ff-script: "Amithen", "JUSTSans", cursive;
+    --ff-sans: "neue-haas-grotesk-display", "Helvetica Neue", Arial, sans-serif;
+    --ff-script: "Amithen", "neue-haas-grotesk-display", cursive;
 
     --wrap-max: 1360px;
     --wrap-pad: clamp(1.5rem, 5vw, 5rem);
