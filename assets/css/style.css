@@ -145,6 +145,17 @@ p:last-child { margin-bottom: 0; }
     padding: 0.4rem 0;
     transition: color .25s var(--ease);
 }
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .35s var(--ease);
+}
+.nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 
 /* CTA no header */
 .header-inner > .cta--sm { justify-self: end; }
