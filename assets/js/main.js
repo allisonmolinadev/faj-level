@@ -34,6 +34,7 @@
         const setState = (open) => {
             nav.classList.toggle('is-open', open);
             toggle.classList.toggle('is-open', open);
+            header.classList.toggle('menu-open', open);
             toggle.setAttribute('aria-expanded', String(open));
             toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
             document.body.style.overflow = open ? 'hidden' : '';
