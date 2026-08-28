@@ -450,7 +450,7 @@ p:last-child { margin-bottom: 0; }
 .section--experiencia {
     background:
         linear-gradient(180deg, rgba(23, 30, 25, 0.72) 0%, rgba(23, 30, 25, 0.68) 50%, rgba(23, 30, 25, 0.82) 100%),
-        url("../../fern-leaf-macro-shot-nature-background.jpg") center center / cover no-repeat fixed;
+        url("../img/fern-leaf-macro-shot-nature-background.jpg") center center / cover no-repeat fixed;
     color: var(--c-off);
     position: relative;
     overflow: hidden;

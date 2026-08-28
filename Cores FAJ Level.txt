@@ -1,6 +1,0 @@
-Simple Black: #090a0a
-Sof Black Green: #171e19
-Xanadu Green: #6e8374
-Oliva Green: #738076
-Liliana Beige: #e4e3d9
-Off White: #fffef5
