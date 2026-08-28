@@ -1,6 +1,6 @@
 /* ============================================
    FAJ LEVEL — Site institucional
-   Identidade: Neue Haas Grotesk + Amithen
+   Identidade: Neue Haas Grotesk + Sastra Kinanthi
    Paleta: Soft Black Green base
 ============================================ */
 
@@ -8,8 +8,8 @@
    Neue Haas Grotesk Display: carregada via Adobe Fonts (Typekit)
    no <head> do index.html. */
 @font-face {
-    font-family: "Amithen";
-    src: url("../fonts/amithen-webfont.woff2") format("woff2");
+    font-family: "Sastra Kinanthi";
+    src: url("../fonts/sastra-kinanthi.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -30,7 +30,7 @@
     --c-line-light: rgba(255, 254, 245, 0.14);
 
     --ff-sans: "neue-haas-grotesk-display", "Helvetica Neue", Arial, sans-serif;
-    --ff-script: "Amithen", "neue-haas-grotesk-display", cursive;
+    --ff-script: "Sastra Kinanthi", "neue-haas-grotesk-display", cursive;
 
     --wrap-max: 1360px;
     --wrap-pad: clamp(1.5rem, 5vw, 5rem);
@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; cursor: default; }
 button { font: inherit; border: 0; background: none; color: inherit; cursor: default; }
 label, summary, [role="button"] { cursor: default; }
 ul { list-style: none; padding: 0; margin: 0; }
-h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: -0.01em; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; letter-spacing: 0; }
 p { margin: 0 0 1rem; }
 p:last-child { margin-bottom: 0; }
 
@@ -366,15 +366,18 @@ p:last-child { margin-bottom: 0; }
     font-size: clamp(2rem, 5vw, 3.6rem);
     font-weight: 300;
     line-height: 1.05;
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
     color: var(--c-soft);
 }
 .section-title em {
     font-family: var(--ff-script);
     font-style: normal;
     font-weight: 400;
+    font-size: 1.3em;
+    line-height: 0.9;
     color: var(--c-beige);
     padding: 0 0.05em;
+    white-space: nowrap;
 }
 .section-title--light { color: var(--c-off); }
 .section-title--light em { color: var(--c-beige); }
@@ -387,11 +390,11 @@ p:last-child { margin-bottom: 0; }
     overflow: hidden;
     padding: 0;
 }
-.marca-grid {
-    display: grid;
-    grid-template-columns: 0.9fr 1.35fr;
-    gap: clamp(2.5rem, 6vw, 5.5rem);
-    align-items: center;
+.marca-copy {
+    text-align: center;
+    max-width: 78ch;
+    margin-inline: auto;
+    padding: clamp(4rem, 8vw, 6rem) 0;
 }
 .marca-title {
     margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
@@ -402,33 +405,16 @@ p:last-child { margin-bottom: 0; }
     color: var(--c-soft);
     margin-bottom: 1.5rem;
     line-height: 1.5;
-    max-width: 46ch;
 }
 .marca-copy p {
-    max-width: 52ch;
     color: var(--c-text-muted);
-    font-size: 1.02rem;
+    font-size: clamp(1.15rem, 1.6vw, 1.35rem);
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
 }
-
-/* -- Moodboard editorial -- */
-.marca-moodboard {
-    position: relative;
-    isolation: isolate;
-}
-.marca-moodboard-frame {
-    margin: 0;
-    position: relative;
-    aspect-ratio: 969 / 930;
-    width: 100%;
-    margin-inline: auto;
-}
-.marca-moodboard-img {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    z-index: 1;
+.marca-copy strong {
+    font-weight: 500;
+    color: var(--c-soft);
 }
 
 /* ------- SEÇÃO 02 — EXPERIÊNCIA ------- */
@@ -456,8 +442,8 @@ p:last-child { margin-bottom: 0; }
 }
 .exp-copy p {
     color: var(--c-beige);
-    font-size: 1.1rem;
-    line-height: 1.65;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+    line-height: 1.6;
     max-width: 48ch;
 }
 .exp-copy strong {
@@ -547,9 +533,9 @@ p:last-child { margin-bottom: 0; }
 }
 .cadastro-copy {
     max-width: 58ch;
-    margin: 0 0 0.9rem;
+    margin: 0 0 1.5rem;
     color: var(--c-beige);
-    font-size: 1rem;
+    font-size: clamp(1.15rem, 1.6vw, 1.4rem);
     line-height: 1.6;
     text-align: left;
 }
@@ -711,7 +697,6 @@ p:last-child { margin-bottom: 0; }
     .nav-toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
     .nav-toggle.is-open span:nth-child(3) { top: 20.25px; transform: rotate(-45deg); }
 
-    .marca-grid,
     .exp-grid,
     .cadastro-box {
         grid-template-columns: 1fr;
@@ -720,24 +705,13 @@ p:last-child { margin-bottom: 0; }
     .cadastro-action .cta { width: 100%; }
     .exp-grid { align-items: start; }
 
-    .section--marca {
+    .marca-copy {
         padding: clamp(3rem, 8vw, 4.5rem) 0;
     }
 
     /* Fallback: iOS Safari não lida bem com background-attachment: fixed */
     .section--experiencia {
         background-attachment: scroll;
-    }
-
-    /* Moodboard mobile */
-    .marca-moodboard {
-        padding: 0;
-    }
-    .marca-moodboard-frame {
-        max-width: 100%;
-    }
-    .marca-moodboard-img {
-        max-height: 70vh;
     }
 
     .hero { min-height: 90vh; min-height: 90svh; }
